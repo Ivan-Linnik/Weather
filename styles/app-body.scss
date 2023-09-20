@@ -1,0 +1,14 @@
+.weather-body {
+    position: relative;
+
+    min-width: 320px;
+    width: 400px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    border: 1px solid $text-color-black;
+    overflow-y: auto;
+}

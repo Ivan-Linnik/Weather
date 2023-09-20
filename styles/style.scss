@@ -1,0 +1,26 @@
+/*------------------------------ Variables ------------------------------*/
+$text-color-black: #424242;
+$text-color-white: #fffafa;
+
+/*------------------------------ Imports ------------------------------*/
+@import '../styles/adjustments';
+@import '../styles/app-body';
+@import '../styles/app-head';
+@import '../styles/app-menu';
+@import '../styles/app-section-today';
+@import '../styles/app-section-days';
+
+/*------------------------------ - ------------------------------*/
+html {
+    font: 16px 'Inter', sans-serif;
+
+    color: $text-color-black;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+.lock {
+    overflow: hidden;
+}

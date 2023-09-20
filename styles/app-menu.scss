@@ -1,0 +1,62 @@
+.weather-menu {
+    position: absolute;
+    left: -500px;
+    top: 50px;
+    z-index: 3;
+
+    width: 100%;
+    height: calc(100% - 50px);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+
+    background-color: $text-color-white;
+
+    transition: all 0.2s ease-in-out;
+
+    &.active {
+        left: 0;
+    }
+}
+
+.choose-city {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+
+    font-size: 1.5rem;
+    font-weight: 200;
+
+    select {
+        font-size: 1rem;
+
+        box-shadow: none;
+        border: 1px solid $text-color-black;
+    }
+}
+
+.info-block {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    width: 60%;
+    height: 50px;
+    padding: 10px;
+
+    font-weight: 200;
+    text-align: right;
+
+    a {
+        font-weight: 300;
+        text-underline-offset: 4px;
+
+        color: $text-color-black;
+    }
+}

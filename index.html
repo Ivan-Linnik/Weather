@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Weather</title>
+</head>
+
+<body>
+    <div class="weather-wrapper">
+        <div class="weather-body">
+            <div class="weather-body__header">
+                <span class="logo">Weather</span>
+                <div class="menu-burger">
+                    <span class="burger-middle"></span>
+                </div>
+            </div>
+            <div class="weather-menu">
+                <label class="choose-city">
+                    <span>Choose city</span>
+                    <select name="city-select" id="city-select">
+                        <option value="Bataysk">Bataysk</option>
+                        <option value="Gukovo">Gukovo</option>
+                        <option value="Rostov-on-Don">Rostov-on-Don</option>
+                        <option value="Moscow">Moscow</option>
+                    </select>
+                </label>
+                <div class="info-block">
+                    Realized with <a href="https://www.weatherapi.com" target="_blank">weatherapi</a>
+                </div>
+            </div>
+            <div class="weather-body__today">
+                <div class="location">Location</div>
+                <div class="current-temperature">-</div>
+                <div class="feels-like">Feels like</div>
+                <div class="condition-text">-</div>
+                <div class="today__max-min">-</div>
+                <div class="forecast today__hours forecast">
+                    <ul class="forecast__list">
+                    </ul>
+                </div>
+            </div>
+            <div class="weather-body__days forecast">
+                <ul class="days__list">
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>
