@@ -1,10 +1,30 @@
 const weatherBody = document.querySelector('.weather-body');
 const select = document.querySelector('#city-select');
 
+function getCurrentLocation() {
+  if ('geolocation' in navigator) {
+    navigator.geolocation.getCurrentPosition((position) => {
+      const { latitude, longitude } = position.coords;
+      let point = `${latitude},${longitude}`;
+
+      getWeather(point)
+        .then((result) => applyWeather(result))
+        .catch((err) => {
+          alert(`Ups...Something fallen (${err.name})`);
+        });
+    });
+  } else {
+    alert('You turned off geolocation. Please turn it on.');
+  }
+}
+
+getCurrentLocation();
+
 async function getWeather(city) {
   const request = await fetch(
     `https://api.weatherapi.com/v1/forecast.json?key=9177fdbc25c84170a25170317231909&q=${city}&days=7&aqi=no&alerts=no`
   );
+
   const result = await request.json();
 
   return result;
@@ -52,6 +72,7 @@ function makeHourForecast(result) {
 
 function makeDayForecast(result) {
   const daysList = document.querySelector('.days__list');
+  daysList.innerHTML = null;
 
   result.forecast.forecastday.map((day) => {
     const dayItem = document.createElement('li');
@@ -116,16 +137,12 @@ function applyWeather(result) {
 }
 
 select.addEventListener('change', (e) => {
-  city = e.target.value;
-
-  getWeather(city).then((result) => applyWeather(result));
+  if (e.target.value == 'auto') {
+    getCurrentLocation();
+  } else {
+    getWeather(e.target.value).then((result) => applyWeather(result));
+  }
 });
-
-getWeather(select.value)
-  .then((result) => applyWeather(result))
-  .catch((err) => {
-    alert(`Ups...Something fallen (${err.name})`);
-  });
 
 ////////////////// Menu work /////////////////////
 const menu = document.querySelector('.weather-menu');
