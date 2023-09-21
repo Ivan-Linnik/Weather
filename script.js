@@ -1,11 +1,13 @@
 const weatherBody = document.querySelector('.weather-body');
 const select = document.querySelector('#city-select');
+const coordsBlock = document.querySelector('.coords');
+let point = '';
 
 function getCurrentLocation() {
   if ('geolocation' in navigator) {
     navigator.geolocation.getCurrentPosition((position) => {
       const { latitude, longitude } = position.coords;
-      let point = `${latitude},${longitude}`;
+      point = `${latitude},${longitude}`;
 
       getWeather(point)
         .then((result) => applyWeather(result))
@@ -134,6 +136,12 @@ function applyWeather(result) {
 
   makeHourForecast(result);
   makeDayForecast(result);
+
+  if (select.value === 'auto') {
+    coordsBlock.innerText = point.split(',').join(' ');
+  } else {
+    coordsBlock.innerText = '';
+  }
 }
 
 select.addEventListener('change', (e) => {

@@ -183,6 +183,12 @@ select {
   letter-spacing: -1px;
 }
 
+.coords {
+  margin-top: -15px;
+  font-size: 0.8rem;
+  font-weight: 200;
+}
+
 .current-temperature {
   position: relative;
   font-size: 5rem;
